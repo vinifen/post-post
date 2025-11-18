@@ -1,59 +1,163 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistema de Posts - Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema simples de gerenciamento de posts desenvolvido com Laravel, onde usuários podem criar, visualizar, editar e deletar seus próprios posts. A aplicação possui autenticação completa com registro e login, além de um sistema de autorização baseado em policies para garantir que apenas os donos dos posts possam modificá-los.
 
-## About Laravel
+## 📋 Sobre a Aplicação
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este é um site de posts simples desenvolvido em Laravel. A aplicação permite que usuários compartilhem posts de texto. Os posts são públicos e podem ser visualizados por qualquer visitante, mas apenas usuários autenticados podem criar novos posts. Apenas o dono de um post pode editá-lo ou deletá-lo.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Público-alvo:** Desenvolvedores e estudantes que desejam testar e aprender Laravel através de um sistema simples de compartilhamento de posts.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🎨 Interface
 
-## Learning Laravel
+A aplicação possui um design simples com variações de branco, criando uma experiência visual limpa. A interface é totalmente responsiva e intuitiva.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+![Tela Principal](screenshot.png)
+*Tela principal mostrando a listagem de posts*
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Tecnologias Utilizadas
 
-## Laravel Sponsors
+- **Laravel 12.38.1** - Framework PHP
+- **PHP 8.4+** - Linguagem de programação
+- **MySQL** - Banco de dados
+- **Laravel Sanctum** - Autenticação
+- **Blade** - Template engine
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 📦 Pré-requisitos
 
-### Premium Partners
+Antes de começar, você precisará ter instalado:
+- PHP 8.2 ou superior
+- Composer
+- MySQL
+- Git (opcional)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## ⚙️ Instalação e Configuração
 
-## Contributing
+### 1. Clone o repositório (se aplicável)
+```bash
+git clone <url-do-repositorio>
+cd post-post-fullstack/post-post
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 2. Instale as dependências do Composer
+```bash
+composer install
+```
 
-## Code of Conduct
+### 3. Instale as dependências do NPM (opcional, para assets frontend)
+```bash
+npm install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 4. Configure o arquivo de ambiente
+```bash
+cp .env.example .env
+```
 
-## Security Vulnerabilities
+Edite o arquivo `.env` e configure:
+- `APP_NAME`: Nome da aplicação
+- `APP_URL`: URL da aplicação (geralmente `http://localhost:8000`)
+- `DB_CONNECTION`: Tipo de banco (mysql)
+- `DB_HOST`: Host do banco (geralmente `127.0.0.1`)
+- `DB_PORT`: Porta do banco (geralmente `3306`)
+- `DB_DATABASE`: Nome do banco de dados
+- `DB_USERNAME`: Usuário do banco
+- `DB_PASSWORD`: Senha do banco
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 5. Gere a chave da aplicação
+```bash
+php artisan key:generate
+```
 
-## License
+### 6. Execute as migrações
+```bash
+php artisan migrate
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 7. (Opcional) Publique as configurações do Sanctum
+```bash
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+```
+
+## ▶️ Executando a Aplicação
+
+### Desenvolvimento Local
+
+Para iniciar o servidor de desenvolvimento:
+
+```bash
+php artisan serve
+```
+
+A aplicação estará disponível em: `http://localhost:8000` ou `http://127.0.0.1:8000`
+
+### Modo Desenvolvimento Completo (com Vite)
+
+Para iniciar com todas as ferramentas de desenvolvimento (servidor, fila, logs e Vite):
+
+```bash
+composer run dev
+```
+
+## 📚 Módulos da Disciplina Utilizados
+
+Esta aplicação foi desenvolvida utilizando os seguintes módulos do curso:
+
+1. **📖 03 | Estrutura do Framework** - Foi utilizado para entender a estrutura básica do Laravel, organização de diretórios, configuração de variáveis de ambiente (.env) e ciclo de vida da aplicação.
+
+2. **📖 04 | Roteamento e Ciclo de Vida de uma Request** - Implementado o sistema completo de rotas (GET, POST, PUT, DELETE), uso de rotas nomeadas, separação de responsabilidades seguindo o padrão MVC com controllers e actions bem definidos.
+
+3. **📖 05 | Views com Blade** - Desenvolvidas todas as views usando Blade template engine, incluindo uso de layouts, subviews (@extends, @section), condicionais (@auth, @if), loops (@forelse), e interpolação de variáveis.
+
+4. **📖 08 | Autenticação de Usuários** - Implementado sistema completo de autenticação com Laravel Sanctum, middleware 'auth' para proteger rotas, tela de login e registro, e gerenciamento de sessões de usuário.
+
+5. **📖 11 | Autorização com Policies e Testes de Feature** - Criada PostPolicy para controlar permissões de acesso (visualização pública, criação apenas para autenticados, edição/exclusão apenas pelo dono do post), aplicando regras de autorização nos controllers.
+
+## 🗄️ Estrutura do Banco de Dados
+
+### Tabelas Principais
+
+- **users**: Armazena informações dos usuários (id, name, email, password)
+- **posts**: Armazena os posts (id, user_id, title, content, timestamps)
+- **sessions**: Gerencia sessões de usuários
+- **personal_access_tokens**: Tokens do Laravel Sanctum
+
+### Relacionamentos
+
+- Um usuário possui muitos posts (One to Many)
+- Um post pertence a um usuário (Many to One)
+
+## 🔒 Segurança
+
+- Senhas são criptografadas usando bcrypt
+- Rotas protegidas com middleware de autenticação
+- Autorização baseada em policies
+- Validação de dados de entrada
+- Proteção CSRF em formulários
+- Sanitização de dados
+
+
+## 🛠️ Comandos Úteis
+
+```bash
+# Limpar cache
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+
+# Executar migrações
+php artisan migrate
+
+# Executar migrações do zero (cuidado: apaga dados)
+php artisan migrate:fresh
+
+# Acessar o Tinker (console interativo)
+php artisan tinker
+```
+## 👨‍💻 Autor
+
+Desenvolvido como projeto acadêmico utilizando Laravel Framework.
+
+---
+
+**Nota:** Este é um projeto educacional desenvolvido para fins de aprendizado do framework Laravel.
