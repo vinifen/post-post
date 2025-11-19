@@ -11,7 +11,7 @@
     <header>
         <div class="container">
             <nav>
-                <a href="{{ route('home') }}" class="logo">Posts</a>
+                <a href="{{ route('home') }}" class="logo">Post-Post</a>
                 <div class="nav-links">
                     @auth
                         <a href="{{ route('profile.edit') }}">Perfil</a>
