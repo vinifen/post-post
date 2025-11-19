@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -20,16 +21,11 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         $this->authorize('create', Post::class);
         
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-        ]);
-
-        $post = Auth::user()->posts()->create($validated);
+        $post = Auth::user()->posts()->create($request->validated());
 
         return redirect()->route('home')->with('success', 'Post criado com sucesso!');
     }
@@ -46,16 +42,11 @@ class PostController extends Controller
         return view('posts.edit', compact('post'));
     }
 
-    public function update(Request $request, Post $post)
+    public function update(UpdatePostRequest $request, Post $post)
     {
         $this->authorize('update', $post);
         
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-        ]);
-
-        $post->update($validated);
+        $post->update($request->validated());
 
         return redirect()->route('home')->with('success', 'Post atualizado com sucesso!');
     }

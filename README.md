@@ -12,7 +12,7 @@ Este é um site de posts simples desenvolvido em Laravel. A aplicação permite 
 
 A aplicação possui um design simples com variações de branco, criando uma experiência visual limpa. A interface é totalmente responsiva e intuitiva.
 
-![Tela Principal](screenshot.png)
+![Tela Principal](https://res.cloudinary.com/dp5iuxy1u/image/upload/v1763510822/Screenshot_from_2025-11-18_21-05-34_ozrn06.png)
 *Tela principal mostrando a listagem de posts*
 
 ## 🚀 Tecnologias Utilizadas
@@ -29,7 +29,7 @@ Antes de começar, você precisará ter instalado:
 - PHP 8.2 ou superior
 - Composer
 - MySQL
-- Git (opcional)
+- Git
 
 ## ⚙️ Instalação e Configuração
 
@@ -109,9 +109,11 @@ Esta aplicação foi desenvolvida utilizando os seguintes módulos do curso:
 
 3. **📖 05 | Views com Blade** - Desenvolvidas todas as views usando Blade template engine, incluindo uso de layouts, subviews (@extends, @section), condicionais (@auth, @if), loops (@forelse), e interpolação de variáveis.
 
-4. **📖 08 | Autenticação de Usuários** - Implementado sistema completo de autenticação com Laravel Sanctum, middleware 'auth' para proteger rotas, tela de login e registro, e gerenciamento de sessões de usuário.
+4. **📖 07 | Forms e Validação de Requisições** - Implementado sistema completo de validação utilizando Form Requests (StorePostRequest, UpdatePostRequest, LoginRequest, RegisterRequest, UpdateProfileRequest), separando a lógica de validação dos controllers. Aplicadas regras de validação para todos os formulários (posts, autenticação e perfil), tratamento de erros campo a campo nas views, e uso de dados "old" para manter valores preenchidos em caso de erro de validação.
 
-5. **📖 11 | Autorização com Policies e Testes de Feature** - Criada PostPolicy para controlar permissões de acesso (visualização pública, criação apenas para autenticados, edição/exclusão apenas pelo dono do post), aplicando regras de autorização nos controllers.
+5. **📖 08 | Autenticação de Usuários** - Implementado sistema completo de autenticação com Laravel Sanctum, middleware 'auth' para proteger rotas, tela de login e registro, e gerenciamento de sessões de usuário.
+
+6. **📖 11 | Autorização com Policies e Testes de Feature** - Criada PostPolicy para controlar permissões de acesso (visualização pública, criação apenas para autenticados, edição/exclusão apenas pelo dono do post), aplicando regras de autorização nos controllers.
 
 ## 🗄️ Estrutura do Banco de Dados
 
@@ -126,15 +128,6 @@ Esta aplicação foi desenvolvida utilizando os seguintes módulos do curso:
 
 - Um usuário possui muitos posts (One to Many)
 - Um post pertence a um usuário (Many to One)
-
-## 🔒 Segurança
-
-- Senhas são criptografadas usando bcrypt
-- Rotas protegidas com middleware de autenticação
-- Autorização baseada em policies
-- Validação de dados de entrada
-- Proteção CSRF em formulários
-- Sanitização de dados
 
 
 ## 🛠️ Comandos Úteis
@@ -157,7 +150,3 @@ php artisan tinker
 ## 👨‍💻 Autor
 
 Desenvolvido como projeto acadêmico utilizando Laravel Framework.
-
----
-
-**Nota:** Este é um projeto educacional desenvolvido para fins de aprendizado do framework Laravel.

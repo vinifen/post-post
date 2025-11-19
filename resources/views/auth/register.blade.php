@@ -38,7 +38,7 @@
                 <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
             </div>
             
-            <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">Registrar</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem; color: #ffffff;">Registrar</button>
         </form>
         
         <div style="text-align: center; color: #6b7280;">
